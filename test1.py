@@ -30,7 +30,6 @@ owners_df.show(truncate=False)
 joined_df = owners_df.join(cars_df, array_contains(col("person.owns"), col("car.name")), "inner")
 joined_df.show(truncate=False)
 
-
 # Group by person's name to calculate the count of cars owned by each person
 output_df = joined_df.groupBy("person.name").agg(
     count("car.name").alias("count"),
@@ -52,10 +51,3 @@ output_df = joined_df.groupBy("person.name").agg(
 
 spark.stop()
 
-# df1 = spark.read.json("q1.json")
-# df2 = spark.read.json("q2.json")
-#
-# df1.show(truncate=False)
-# df2.show(truncate=False)
-# #joined_df = df1.join(df2, df1.common_key == df2.common_key, "inner")
-# #joined_df.show()
