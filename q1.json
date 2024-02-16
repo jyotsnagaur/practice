@@ -1,0 +1,7 @@
+{
+  "id": "Cars",
+  "type": [
+    { "name": "Tesla", "min": "100", "max": "500" },
+    { "name": "Toyota", "min": "50", "max": "400" }
+  ]
+}

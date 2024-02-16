@@ -1,0 +1,7 @@
+{
+  "id": "Owner",
+  "persons": [
+    { "name": "Amit", "owns": ["Tesla"] },
+    { "name": "Bodh", "owns": ["Tesla", "Toyota"] }
+  ]
+}
