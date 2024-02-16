@@ -26,27 +26,24 @@ cars_df.show(truncate=False)
 owners_df.show(truncate=False)
 
 
-
 # Join the DataFrames based on the common key "name"
 joined_df = owners_df.join(cars_df, array_contains(col("person.owns"), col("car.name")), "inner")
 joined_df.show(truncate=False)
 
 
-
-
 # Group by person's name to calculate the count of cars owned by each person
-# #output_df = joined_df.groupBy("person.name").agg(
-#     count("car.name").alias("count"),
-#     collect_list(
-#         struct(col("car.name").alias("name"), col("car.min").alias("min"), col("car.max").alias("max"))
-#     ).alias("owns")
-# ).select(
-#     lit("Owner_cars").alias("id"),
-#     col("person.name").alias("name"),
-#     col("count"),
-#     col("owns")
-# )
-#
+output_df = joined_df.groupBy("person.name").agg(
+    count("car.name").alias("count"),
+    collect_list(
+        struct(col("car.name").alias("name"), col("car.min").alias("min"), col("car.max").alias("max"))
+    ).alias("owns")
+).select(
+    lit("Owner_cars").alias("id"),
+    col("person.name").alias("name"),
+    col("count"),
+    col("owns")
+)
+
 # # Show the DataFrame
 # output_df.show(truncate=False)
 
