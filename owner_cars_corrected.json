@@ -1,0 +1,1 @@
+{"id": "Owner_cars", "persons": [{"name": "Amit", "count": 1, "owns": [{"name": "Tesla", "min": "100", "max": "500"}]}, {"name": "Bodh", "count": 2, "owns": [{"name": "Tesla", "min": "100", "max": "500"}, {"name": "Toyota", "min": "50", "max": "400"}]}]}
